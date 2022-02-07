@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Yatzy {
 
 	// this function return the sum of all dices
@@ -6,14 +8,15 @@ public class Yatzy {
         return d1 + d2 + d3 + d4 + d5;
     }
 
-    public static int yatzy(int... dice)
+    // return 50 only if all dices in the List of dice is equals else return 0
+    public static int yatzy(Byte... dice)
     {
-        int[] counts = new int[6];
-        for (int die : dice)
-            counts[die-1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
+        for(int i = 1; i < dice.length; i++)
+        {
+            if(Arrays.stream(dice).allMatch(s -> s.equals(dice[0])))
                 return 50;
+        }
+
         return 0;
     }
 
