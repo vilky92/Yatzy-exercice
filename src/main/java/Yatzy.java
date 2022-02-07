@@ -1,62 +1,12 @@
 import java.util.Arrays;
 
 public class Yatzy {
-
-	// this function return the sum of all dices
-    public static int chance(byte d1, byte d2, byte d3, byte d4, byte d5)
+	
+	
+    protected byte[] dice;
+    public Yatzy(byte d1, byte d2, byte d3, byte d4, byte _5)
     {
-        return d1 + d2 + d3 + d4 + d5;
-    }
-
-    // return 50 only if all dices in the List of dice is equals else return 0
-    public static int yatzy(Byte... dice)
-    {
-        for(int i = 1; i < dice.length; i++)
-        {
-            if(Arrays.stream(dice).allMatch(s -> s.equals(dice[0])))
-                return 50;
-        }
-
-        return 0;
-    }
-
-    public static int ones(int d1, int d2, int d3, int d4, int d5) {
-        int sum = 0;
-        if (d1 == 1) sum++;
-        if (d2 == 1) sum++;
-        if (d3 == 1) sum++;
-        if (d4 == 1) sum++;
-        if (d5 == 1) 
-            sum++;
-
-        return sum;
-    }
-
-    public static int twos(int d1, int d2, int d3, int d4, int d5) {
-        int sum = 0;
-        if (d1 == 2) sum += 2;
-        if (d2 == 2) sum += 2;
-        if (d3 == 2) sum += 2;
-        if (d4 == 2) sum += 2;
-        if (d5 == 2) sum += 2;
-        return sum;
-    }
-
-    public static int threes(int d1, int d2, int d3, int d4, int d5) {
-        int s;    
-        s = 0;
-        if (d1 == 3) s += 3;
-        if (d2 == 3) s += 3;
-        if (d3 == 3) s += 3;
-        if (d4 == 3) s += 3;
-        if (d5 == 3) s += 3;
-        return s;
-    }
-
-    protected int[] dice;
-    public Yatzy(int d1, int d2, int d3, int d4, int _5)
-    {
-        dice = new int[5];
+        dice = new byte[5];
         dice[0] = d1;
         dice[1] = d2;
         dice[2] = d3;
@@ -64,34 +14,95 @@ public class Yatzy {
         dice[4] = _5;
     }
 
-    public int fours()
+	//@param byte
+	// this function return the sum of all dices
+	//@return byte
+    public static byte chance(byte d1, byte d2, byte d3, byte d4, byte d5)
     {
-        int sum;    
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
-                sum += 4;
-            }
+        return (byte) (d1 + d2 + d3 + d4 + d5);
+    }
+
+    //@param Byte...
+    // return 50 only if all dices in the List of dice is equals else return 0
+    // return byte
+    public static byte yatzy(Byte... dice)
+    {
+        for(int i = 1; i < dice.length; i++)
+        {
+            if(Arrays.stream(dice).allMatch(s -> s.equals(dice[0])))
+                return (byte) 50;
         }
+
+        return (byte) 0;
+    }
+    
+    //@param Byte...
+    // return the number of 1 present in the dice
+    // return byte
+    public static int ones(Byte... dice) {
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 1) sum++;
+    	}
         return sum;
     }
 
-    public int fives()
-    {
-        int s = 0;
-        int i;
-        for (i = 0; i < dice.length; i++) 
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
+    //@param Byte...
+    // return the number of 2 present in the dice
+    // return byte
+    public static byte twos(Byte... dice) {
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 2) sum+=2;
+    	}
+        return sum;
     }
 
-    public int sixes()
+    //@param Byte...
+    // return the number of 3 present in the dice
+    // return byte
+    public static int threes(Byte... dice) {
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 3) sum+=3;
+    	}
+        return sum;
+    }
+
+
+    //@param Byte...
+    // return the number of 4 present in the dice
+    // return byte
+    public static byte fours(Byte... dice)
     {
-        int sum = 0;
-        for (int at = 0; at < dice.length; at++) 
-            if (dice[at] == 6)
-                sum = sum + 6;
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 4) sum+=4;
+    	}
+        return sum;
+    }
+
+    //@param Byte...
+    // return the number of 5 present in the dice
+    // return byte
+    public static byte fives(Byte... dice)
+    {
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 5) sum+=5;
+    	}
+        return sum;
+    }
+
+    //@param Byte...
+    // return the number of 6 present in the dice
+    // return byte
+    public static byte sixes(Byte... dice)
+    {
+    	byte sum = 0;
+    	for (byte i = 0; i < dice.length ; i++) {
+    		if (dice[i] == 6) sum+=6;
+    	}
         return sum;
     }
 

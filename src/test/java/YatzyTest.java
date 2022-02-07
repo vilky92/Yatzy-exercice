@@ -20,46 +20,49 @@ public class YatzyTest {
     }
 
     @Test public void test_1s() {
-        assertTrue(Yatzy.ones(1,2,3,4,5) == 1);
-        assertEquals(2, Yatzy.ones(1,2,1,4,5));
-        assertEquals(0, Yatzy.ones(6,2,2,4,5));
-        assertEquals(4, Yatzy.ones(1,2,1,1,1));
+        assertTrue(Yatzy.ones((byte)1, (byte)2, (byte)3, (byte)4, (byte)5) == (byte)1);
+        assertEquals(2, Yatzy.ones((byte)1, (byte)2, (byte)1, (byte)4, (byte)5));
+        assertEquals(0, Yatzy.ones((byte)6, (byte)2, (byte)2, (byte)4, (byte)5));
+        assertEquals(4, Yatzy.ones((byte)1, (byte)2, (byte)1, (byte)1, (byte)1));
     }
 
     @Test
     public void test_2s() {
-        assertEquals(4, Yatzy.twos(1,2,3,2,6));
-        assertEquals(10, Yatzy.twos(2,2,2,2,2));
+        assertEquals(4, Yatzy.twos((byte)1, (byte)2, (byte)3, (byte)2, (byte)6));
+        assertEquals(10, Yatzy.twos((byte)2, (byte)2, (byte)2, (byte)2, (byte)2));
     }
 
     @Test
     public void test_threes() {
-        assertEquals(6, Yatzy.threes(1,2,3,2,3));
-        assertEquals(12, Yatzy.threes(2,3,3,3,3));
+        assertEquals(6, Yatzy.threes((byte)1, (byte)2, (byte)3, (byte)2, (byte)3));
+        assertEquals(12, Yatzy.threes((byte)2, (byte)3, (byte)3, (byte)3, (byte)3));
     }
 
     @Test
     public void fours_test() 
     {
-        assertEquals(12, new Yatzy(4,4,4,5,5).fours());
-        assertEquals(8, new Yatzy(4,4,5,5,5).fours());
-        assertEquals(4, new Yatzy(4,5,5,5,5).fours());
+        assertTrue(Yatzy.fours((byte)1, (byte)2, (byte)3, (byte)4, (byte)5) == (byte)4);
+        assertEquals(12, Yatzy.fours((byte)4, (byte)4, (byte)4, (byte)5, (byte)5));
+        assertEquals(8, Yatzy.fours((byte)4, (byte)4, (byte)5, (byte)5, (byte)5));
+        assertEquals(4, Yatzy.fours((byte)4, (byte)5, (byte)5, (byte)5, (byte)5));
     }
 
     @Test
     public void fives() {
-        assertEquals(10, new Yatzy(4,4,4,5,5).fives());
-        assertEquals(15, new Yatzy(4,4,5,5,5).fives());
-        assertEquals(20, new Yatzy(4,5,5,5,5).fives());
+        assertTrue(Yatzy.fives((byte)1, (byte)2, (byte)3, (byte)4, (byte)5) == (byte)5);
+        assertEquals(10, Yatzy.fives((byte)4, (byte)4, (byte)4, (byte)5, (byte)5));
+        assertEquals(15, Yatzy.fives((byte)4, (byte)4, (byte)5, (byte)5, (byte)5));
+        assertEquals(20, Yatzy.fives((byte)4, (byte)5, (byte)5, (byte)5, (byte)5));
+
     }
 
     @Test
     public void sixes_test() {
-        assertEquals(0, new Yatzy(4,4,4,5,5).sixes());
-        assertEquals(6, new Yatzy(4,4,6,5,5).sixes());
-        assertEquals(18, new Yatzy(6,5,6,6,5).sixes());
+        assertTrue(Yatzy.sixes((byte)6, (byte)2, (byte)3, (byte)4, (byte)5) == (byte)6);
+        assertEquals(0, Yatzy.sixes((byte)4, (byte)4, (byte)4, (byte)5, (byte)5));
+        assertEquals(6, Yatzy.sixes((byte)4, (byte)4, (byte)6, (byte)5, (byte)5));
+        assertEquals(18, Yatzy.sixes((byte)6, (byte)5, (byte)6, (byte)6, (byte)5));
     }
-
     @Test
     public void one_pair() {
         assertEquals(6, Yatzy.score_pair(3,4,3,5,6));
