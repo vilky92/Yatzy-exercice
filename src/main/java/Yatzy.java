@@ -1,14 +1,9 @@
 public class Yatzy {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5)
+	// this function return the sum of all dices
+    public static int chance(byte d1, byte d2, byte d3, byte d4, byte d5)
     {
-        int total = 0;
-        total += d1;
-        total += d2;
-        total += d3;
-        total += d4;
-        total += d5;
-        return total;
+        return d1 + d2 + d3 + d4 + d5;
     }
 
     public static int yatzy(int... dice)
